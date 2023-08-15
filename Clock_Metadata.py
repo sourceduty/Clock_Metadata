@@ -36,7 +36,7 @@ def main():
         save_to_csv(data_file_path, [current_time.strftime('%Y-%m-%d %H:%M:%S')])
         time.sleep(1) 
         
-        if (current_time - start_time) >= timedelta(seconds=10):
+        if (current_time - start_time) >= timedelta(seconds=120):
             count+=1
             stats = pd.read_csv('data.csv')
             statistics_data = calculate_statistics(start_time, current_time,len(stats))
@@ -44,6 +44,7 @@ def main():
                 append_to_statistics_csv(['Starting time', 'Ending time', 'Total time measurements'])
             append_to_statistics_csv(statistics_data)
             start_time = current_time
+            end = (current_time + timedelta)
             exit()
             
 if __name__ == '__main__':
