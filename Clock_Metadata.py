@@ -1,5 +1,7 @@
 # Clock_Metadata
 
+# Recording time data and statistical metadata to .csv files.
+
 # Copyright (c) 2023, Sourceduty
 # This software is free and open-source; anyone can redistribute it and/or modify it.
 
