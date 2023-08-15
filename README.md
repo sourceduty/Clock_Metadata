@@ -9,6 +9,7 @@ Tracking time with data and metadata using Python.
 ## CODE
 
 Timedelta():
+
 ```
 if (current_time - start_time) >= timedelta(hours=24):
 ```
