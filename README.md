@@ -6,7 +6,7 @@
 
 Tracking time with data and metadata using Python.
 
-CODE
+## CODE
 
 Timedelta():
 ```
