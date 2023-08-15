@@ -5,8 +5,10 @@
 
 import csv
 import time
+import pandas as pd
 from datetime import datetime, timedelta
 import os
+
 
 data_file_path = 'data.csv'
 statistics_file_path = 'statistics.csv'
@@ -34,13 +36,15 @@ def main():
         save_to_csv(data_file_path, [current_time.strftime('%Y-%m-%d %H:%M:%S')])
         time.sleep(1) 
         
-        if (current_time - start_time) >= timedelta(hours=24):
+        if (current_time - start_time) >= timedelta(seconds=10):
             count+=1
-            statistics_data = calculate_statistics(start_time, current_time,count)
+            stats = pd.read_csv('data.csv')
+            statistics_data = calculate_statistics(start_time, current_time,len(stats))
             if not os.path.exists(statistics_file_path):
                 append_to_statistics_csv(['Starting time', 'Ending time', 'Total time measurements'])
             append_to_statistics_csv(statistics_data)
             start_time = current_time
-
+            exit()
+            
 if __name__ == '__main__':
     main()
